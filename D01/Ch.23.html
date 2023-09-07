@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .rectangle {
+        width: 100%;
+        height: calc(100% - 50px);
+        --start: hsl(0, 100%, 50%);
+        --end: hsl(322, 100%, 50%);
+        background-image: linear-gradient(-135deg, var(--start), var(--end));
+      }
+    </style>
+  </head>
+  <body>
+    <div style="height: 200px">
+      <button class="button">색상변경</button>
+      <div class="rectangle"></div>
+    </div>
+    <script>
+      // 직사각형
+      const rectangle = document.querySelector(".rectangle");
+
+      // 버튼 클릭시 onclick 실행
+      document
+        .querySelector(".button")
+        .addEventListener("click", onClickButton);
+
+      // 버튼 누를때 마다 그라데이션 색상을 변경
+      function onClickButton() {
+        const randomHue = Math.trunc(Math.random() * 360);
+        // 그라데이션 시작과 끝 색상을 결정
+        const randomColorStart = `hsl(${randomHue}, 100%, 50%)`;
+        const randomColorEnd = `hsl(${randomHue + 40}, 100%, 50%)`;
+
+        // 직사각형 그라데이션 처리 변수
+        rectangle.style.setProperty("--start", randomColorStart);
+        rectangle.style.setProperty("--end", randomColorEnd);
+      }
+    </script>
+  </body>
+</html>
