@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>ID</th>
+        <td class="id"></td>
+      </tr>
+      <tr>
+        <th>name</th>
+        <td class="name"></td>
+      </tr>
+      <tr>
+        <th>age</th>
+        <td class="age"></td>
+      </tr>
+    </table>
+  </body>
+  <script>
+    const hashes = {};
+
+    const parameters = location.search.split(/&|\?/).filter((value) => {
+      return value.includes("=");
+    });
+    // location.search => 현재 URL 불러옴 / 파라미터를 추출하고 이를 저장하는 배열
+    /**
+     * 파라미터는 location.search를 통해 얻음
+     * ex ) https://example.com/?id=123&name=John  => location.search : ?id=123&name=John
+     * split(/&|\?/) => & 또는 ?을 기준 => id=123&name=John은 ["?id=123", "name=John"]
+     *
+     */
+
+    parameters.forEach((parameter) => {
+      const parameterList = parameter.split("="); //parameter = "id=123 / res ["id", "123"]
+      const key = parameterList[0];
+      const value = decodeURIComponent(parameterList[1]);
+
+      hashes[key] = value;
+    });
+
+    // hashes 저장하는 역할
+    /** 
+     * hashes :{
+    "id" :parameterList[0] : "123",parameterList[1]
+    "name": "John"
+    }
+    */
+
+    if (hashes["id"] != null) {
+      document.querySelector(".id").innerHTML = hashes["id"];
+    }
+    // id의 값이 null인 확인하고 HTML에 나오겠금 하기
+  </script>
+</html>

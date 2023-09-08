@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="name_container">
+      <label>성<input id="familyNameText" class="text" type="text" /></label>
+      <label>이름<input id="firstNameText" class="text" type="text" /></label>
+    </div>
+    <p id="fullName" style="width: 200px"></p>
+  </body>
+  <script>
+    const familyNameText = document.querySelector("#familyNameText");
+    const firstNameText = document.querySelector("#firstNameText");
+    const fullName = document.querySelector("#fullName");
+
+    familyNameText.addEventListener("keyup", onKeyUp);
+    firstNameText.addEventListener("keyup", onKeyUp);
+
+    function onKeyUp() {
+      const familyName = familyNameText.value;
+      const firstName = firstNameText.value;
+
+      fullName.innerHTML = familyName + "" + firstName;
+      //fullName.innerHTML = `${familyName}${firstName}`
+    }
+  </script>
+</html>
