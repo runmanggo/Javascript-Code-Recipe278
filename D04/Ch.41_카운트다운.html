@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="timer">
+      <div class="second"></div>
+    </div>
+  </body>
+  <script>
+    //초 단위용 element
+    const secondElement = document.querySelector(".second");
+    //15초를 목표치로 지정
+    // Date 함수는 인수를 무시, 현재 날짜 및 시간을 나타내는 문자열 반환
+    // new Data는 인자를 받아서 데이터 값을 넣을 수 있음
+    const goalTime = new Date().getTime() + 15 * 1000;
+
+    update();
+
+    //프레임을 실행하는 함수
+
+    function update() {
+      const currentTime = new Date().getTime();
+
+      // 목표치까지 남은 시간
+      const leftTime = goalTime - currentTime;
+
+      // 목표 시간이 0초 미만이라면 타이머 정지
+      if (leftTime <= 0) {
+        secondElement.innerHTML = "15초가 지났습니다.";
+        return;
+      }
+
+      // 초 단위 표시. 밀리초는 소수점 두자리까지
+      secondElement.innerHTML = (leftTime / 1000).toFixed(2);
+      // 프레임에서 update 재실행
+      requestAnimationFrame(update);
+    }
+  </script>
+</html>

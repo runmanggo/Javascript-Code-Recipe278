@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <span class="hour"></span>
+    <span class="minute"></span><span class="second"></span>
+  </body>
+  <script>
+    // 시간
+    const hourDiv = document.querySelector(".hour");
+    // 분
+    const minuteDiv = document.querySelector(".minute");
+    // 초
+    const secondDiv = document.querySelector(".second");
+
+    update();
+
+    //현재 시간 표시
+    function update() {
+      const currnetTime = new Date();
+
+      //시간 표시
+      const hour = currnetTime.getHours();
+      // 생성된 new date에서 가져옴 둘이 세트라고 볼 수 있음
+      hourDiv.innerText = addZeroPadding(hour) + ":";
+      //분 표시
+      const minute = currnetTime.getMinutes();
+      minuteDiv.innerText = addZeroPadding(minute) + ":";
+      //초 표시
+      const second = currnetTime.getSeconds();
+      secondDiv.innerText = addZeroPadding(second);
+
+      requestAnimationFrame(update);
+    }
+    /**
+     * 두 자리 형식이 되도록 앞부분에 0을 추가하는 함수
+     * @param num
+     * @returns {string}
+     */
+
+    function addZeroPadding(num) {
+      return String(num).padStart(2, "0");
+    } // 실제 길이보다 짧으면 문자열 반환 안됨
+  </script>
+</html>

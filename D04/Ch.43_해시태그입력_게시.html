@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>트윗하고 싶은 내용을 입력해 주시요.</h1>
+    <textarea id="tweetTextarea"></textarea>
+    <button id="tweetBtn">트윗하기</button>
+  </body>
+  <script>
+    document.querySelector("#tweetBtn").addEventListener("click", () => {
+      //텍스트 area에서 내용 가져오기
+      let tweetText = document.querySelector("#tweetTextarea").value;
+      // #자바스크립트(해시태그)와 빈칸을 트윗 내용에 추가하기
+      tweetText += "#JavaScript";
+      // 인코딩하기
+      const encodedText = encodeURIComponent(tweetText);
+      //링크작성하기
+      const tweetURL = `https://twitter.com/intent/tweet?text=${encodedText}`;
+
+      //링크 열기
+      window.open(tweetURL);
+    });
+
+    // 결과물 : 트위터 텍스트 작성하는 곳에,tweetTextarea 작성한 내용과 #Javascript 해시태그 같이 나옴
+  </script>
+</html>
