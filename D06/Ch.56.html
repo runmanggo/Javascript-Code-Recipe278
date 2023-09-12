@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="search-word-wrapper">
+      <label>유저 ID<input id="search-id-input" type="text" /></label>
+    </div>
+    <p id="search-result">유저 검색 결과 없음</p>
+  </body>
+  <script>
+    const userDataList = [
+      { id: 123, name: "곰" },
+      { id: 1021, name: "사자" },
+      { id: 6021, name: "여우" },
+    ];
+    //검색 ID 입력창
+    const searchIdInput = document.querySelector("#search-id-input");
+    //검색 결과 표시창
+    const searchResult = document.querySelector("#search-result");
+
+    searchIdInput.addEventListener("keyup", () => {
+      const searchId = Number(event.target.value); //id 값이 숫자라 일치하는지 보려고
+      findUser(searchId);
+    });
+
+    function findUser(searchId) {
+      const targetData = userDataList.find((data) => data.id === searchId);
+      //data가 userDataList 요소, 요소의id이 인풋값과 같은가?
+
+      if (targetData == null) {
+        searchResult.textContent = "유저 검색 결과 읎음";
+        return;
+      }
+      // 인풋 데이터 자체가 없으면 "유저검색결과 없다"라고 출력
+
+      searchResult.textContent = targetData.name; //정확한 값
+    }
+  </script>
+</html>
