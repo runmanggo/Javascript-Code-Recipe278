@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #log {
+        font-size: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="centering">
+      <p id="log"></p>
+    </main>
+  </body>
+  <script>
+    const date = new Date();
+    const year = date.getFullYear();
+    console.log(year);
+
+    document.querySelector("#log").innerHTML = `지금은 ${year}년입니다.`;
+  </script>
+</html>
