@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="log"></div>
+  </body>
+  <script>
+    const date = new Date();
+    const hour = date.getHours();
+
+    let meridiem; // 오전, 오후 구분
+    let hours; // 시간
+
+    if (hour < 12) {
+      meridiem = "오전";
+      hour2 = hour;
+    } else {
+      meridiem = "오후";
+      hou2 = hour - 12;
+    }
+
+    const label = `${meridiem}${hour2}시`;
+    document.querySelector("#log").innerHTML = `지금은 ${label}입니다.`;
+  </script>
+</html>

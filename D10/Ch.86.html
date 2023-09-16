@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="log"></div>
+  </body>
+  <script>
+    const date = new Date();
+
+    const locale = date.toLocaleString(); // 예 : "2020.03.01 오후 10:22:01"
+    const localeDate = date.toLocaleDateString(); //예 : "202.03.01"
+    const localTime = date.toLocaleTimeString(); //예 :"오후 10:31:34"
+
+    document.querySelector(
+      "#log"
+    ).innerHTML = `${locale}<br/>${localeDate}${localTime}`;
+  </script>
+</html>
