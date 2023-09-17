@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../common/css/style.css" />
+    <script src="main.js" defer></script>
+    <style>
+      #log {
+        font-size: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="centering">
+      <p id="log"></p>
+    </main>
+  </body>
+  <script>
+    const oldTime = Date.now();
+
+    setInterval(() => {
+      const currentTime = Date.now();
+      //경과한 밀리초 가져오기
+      const diff = currentTime - oldTime;
+      //초 단위 변환하기
+      const sec = Math.floor(diff / 1000);
+
+      document.querySelector("#log").innerHTML = `${sec}초 경과`;
+    }, 1000);
+  </script>
+</html>
