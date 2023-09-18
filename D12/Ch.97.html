@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>샘플</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body:before {
+        filter: hue-rotate(84deg);
+      }
+
+      .line-horizontal {
+        position: absolute;
+        top: 50%;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+        background: #c5e1a5;
+      }
+
+      .line-vertical {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 1px;
+        height: 100%;
+        background: #f48fb1;
+      }
+
+      .value-width {
+        color: #c5e1a5;
+        font-size: 2rem;
+      }
+
+      .value-height {
+        color: #f48fb1;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="line-vertical"></div>
+    <div class="line-horizontal"></div>
+
+    <main class="centering">
+      <p class="value-width"></p>
+      <p class="value-height"></p>
+    </main>
+  </body>
+  <script>
+    window.addEventListener("load", () => {
+      resizeHandler();
+    });
+
+    // 브라우저 창 크기가 변경될 때마다 실행
+    window.addEventListener("resize", resizeHandler);
+
+    function resizeHandler(event) {
+      // 새로운 화면의 가로 길이
+      const w = innerWidth;
+      // 새로운 화면의 세로 길이
+      const h = innerHeight;
+
+      document.querySelector(
+        ".value-width"
+      ).innerHTML = `가로 길이는 ${w}px입니다.`;
+      document.querySelector(
+        ".value-height"
+      ).innerHTML = `세로 길이는 ${h}px입니다.`;
+    }
+  </script>
+</html>
