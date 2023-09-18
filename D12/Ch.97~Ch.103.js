@@ -23,4 +23,5 @@ location.reload(); // 인수 true를 전달하면 브라우저의 캐시를 무�
 history.back(); //뒤로 가기
 history.forward(); // 앞으로 가기
 //임의 ㅣ숫자를 전달하여 히스토리를 이동하는 메소드는 음수를 입력하며 뒤로가기, 양수를 입력하며 앞으로 가기 작업 실행
-history.go(-1);
+history.go(-1); //뒤로 가기와 동일
+

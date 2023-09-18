@@ -47,4 +47,4 @@ date.setSeconds(0);
 
 const date6 = new Date("2020/06/01");
 date.setMonth(date.getMonth() - 1); //1개월 전
-date.setDate(date.getDate() + 60);
+date.setDate(date.getDate() + 60); //60일 후

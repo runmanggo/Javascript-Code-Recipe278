@@ -98,3 +98,6 @@ console.log(Object.isFrozen(object3));
 //객체 수정을 제한하는 다른 방법
 //Object.seal () : 속성의 추가와 삭제 제한 변경만 가능
 //Object.preventExtnesions : 속성의 추가 제한, 삭제와 변경만 가능
+
+//74. 데이터 타입 이해 원시 타입 객체 타입
+//75. 가변성과 불가변성 원시타입 불가변성 , 객체타입 가변성
