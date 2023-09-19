@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>샘플</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        background: url("bg.jpg") center;
+      }
+
+      #log {
+        font-size: 2rem;
+        color: #2b85ff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>샘플코드</h1>
+    </header>
+    <main>
+      <p id="log">포커스를 벗어난 상태</p>
+    </main>
+  </body>
+  <script>
+    window.addEventListener("focus", () => {
+      document.querySelector("#log").innerHTML = "포커스상태";
+    });
+    window.addEventListener("blur", () => {
+      document.querySelector("#log").innerHTML = "포커스 벗어난 상태";
+    });
+  </script>
+</html>

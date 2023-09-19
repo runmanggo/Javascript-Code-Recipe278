@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>샘플</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      a,
+      a:visited {
+        color: #2b85ff;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>샘플코드</h1>
+    </header>
+    <main>
+      <p class="log"></p>
+      <ul>
+        <li><a href="#orange">오렌지 앵커 링크</a></li>
+        <li><a href="#apple">사과 앵커 링크</a></li>
+      </ul>
+    </main>
+  </body>
+  <script>
+    window.addEventListener("hashchange", handleHashChange);
+    handleHashChange();
+    function handleHashChange() {
+      const hash = location.hash;
+      document.querySelector(".log").innerHTML = `현재 앵커는 ${hash}입니다`;
+    }
+  </script>
+</html>

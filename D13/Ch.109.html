@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>샘플</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <header>
+      <h1>샘플코드</h1>
+    </header>
+    <main>
+      <p><button id="btnApple" class="red">사과</button></p>
+      <p><button id="btnOrange" class="orange">오렌지</button></p>
+    </main>
+  </body>
+  <script>
+    //페이지 타이틀을 동적으로 변경하고 싶을때 효과적이다.
+    document.querySelector("#btnApple").addEventListener("click", () => {
+      document.title = "사과";
+    });
+    document.querySelector("#btnOrange").addEventListener("click", () => {
+      document.title = "오렌쥐";
+    });
+  </script>
+</html>
