@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box {
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        color: #fff;
+        border: 1px solid #fff;
+        background-color: rgba(0, 34, 255, 0.6);
+        width: 160px;
+        height: 160px;
+        display: flex;
+        margin-left: 10px;
+        margin-right: 10px;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="large">
+      <div class="box">박스</div>
+      <div class="box">박스</div>
+      <div class="box">박스</div>
+    </main>
+  </body>
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const boxNum = document.querySelectorAll(".box").length;
+      console.log(`.box 요소의 개수는 ${boxNum}입니다.`);
+    });
+  </script>
+</html>

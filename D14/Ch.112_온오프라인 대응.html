@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>샘플</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <header>
+      <h1>샘플코드</h1>
+    </header>
+    <main class="centering">
+      <p class="log"></p>
+    </main>
+  </body>
+  <script>
+    const isOnine = navigator.onLine;
+    if (isOnine === true) {
+      log("온라인 상태입니다.");
+    } else {
+      log("오프라인 상태");
+    }
+    window.addEventListener("online", () => {
+      log("📶온라인 상태입니다");
+    });
+    window.addEventListener("offline", () => {
+      log("❎️오프라인 상태입니다");
+    });
+
+    function log(message) {
+      document.querySelector(".log").innerHTML = message;
+    }
+  </script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>샘플</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../common/css/style_grass.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>샘플코드</h1>
+      </header>
+
+      <main>
+        <p><button id="btn" class="blue">전체 화면 설정</button></p>
+        <p><button id="btnExit" class="orange">전체 화면 해제</button></p>
+      </main>
+    </div>
+  </body>
+  <script>
+    const btn = document.querySelector("#btn");
+    btn.addEventListener("click", (event) => {
+      // 전체 화면 전환
+      myRequestFullScreen(document.body);
+    });
+
+    function myRequestFullScreen(element) {
+      if (element.requestFullscreen) {
+        // 표준 사양
+        element.requestFullscreen();
+      } else if (element.webkitRequestFullscreen) {
+        // Safari, Chrome
+        element.webkitRequestFullscreen();
+      } else if (element.mozRequestFullScreen) {
+        // Firefox
+        element.mozRequestFullScreen();
+      } else if (element.msRequestFullscreen) {
+        // IE11+
+        element.msRequestFullscreen();
+      }
+    }
+
+    const btnExit = document.querySelector("#btnExit");
+    btnExit.addEventListener("click", (event) => {
+      // 전체 화면 해제
+      myCancelFullScreen();
+    });
+
+    //전체 화면 해제는 전달 인수 없이 document 메소드를 사용한다.
+    function myCancelFullScreen() {
+      if (document.exitFullscreen) {
+        // 표준 사양
+        document.exitFullscreen();
+      } else if (document.webkitCancelFullScreen) {
+        // Safari, Chrome
+        document.webkitCancelFullScreen();
+      } else if (document.mozCancelFullScreen) {
+        // Firefox
+        document.mozCancelFullScreen();
+      } else if (document.msExitFullscreen) {
+        // IE 11+
+        document.msExitFullscreen();
+      }
+    }
+  </script>
+</html>
