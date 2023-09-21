@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      main {
+        background: rgba(255, 255, 255, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      p {
+        font-size: 22px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="large">
+      <p>윈도우 가로 길이: <span id="widthLog"></span></p>
+      <p>윈도우 세로 길이: <span id="heightLog"></span></p>
+    </main>
+  </body>
+  <script>
+    const widthLog = document.querySelector("#widthLog");
+    const heightLog = document.querySelector("#heightLog");
+
+    window.addEventListener("resize", () => {
+      widthLog.innerText = `${window.innerWidth}px`;
+      heightLog.innerText = `${window.innerHeight}px`;
+    });
+
+    let resizeTimer; // 1초 후 처리 실행할 타이머
+
+    window.addEventListener("resize", () => {
+      //resizeTimer 실행 중인 경우 타이머 해제
+      if (resizeTimer != null) {
+        clearTimeout(resizeTimer);
+      }
+      //1초 후 onResize 실행
+      resizeTimer = setTimeout(() => {
+        onResize();
+      }, 1000);
+    });
+
+    function onResize() {
+      // 크기 조정 이벤트 발생 후 원하는 작업을 여기에 추가
+      console.log("창 크기가 조정되었습니다.");
+    }
+  </script>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      body {
+        background-color: #333333;
+      }
+      .textarea {
+        width: 100%;
+        height: calc(100% - 40px);
+        font-size: 40px;
+        background-color: rgba(255, 255, 255, 0.9);
+      }
+
+      p {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: -1px -1px 1px #333333, 1px 1px #ffffff;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <textarea class="textarea"></textarea>
+      <p>현재 <span class="string_num">0</span>문자를 입력 중입니다.</p>
+    </main>
+  </body>
+  <script>
+    const textarea = document.querySelector(".textarea");
+    const string_num = document.querySelector(".string_num");
+
+    textarea.addEventListener("keyup", onKeyUp);
+    function onKeyUp() {
+      const inputText = textarea.value;
+      string_num.textContent = inputText.length;
+    }
+  </script>
+</html>

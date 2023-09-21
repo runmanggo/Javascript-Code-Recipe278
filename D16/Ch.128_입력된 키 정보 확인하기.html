@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <textarea class="textarea"></textarea>
+  </body>
+  <script>
+    const textarea = document.querySelector(".textarea");
+
+    textarea.addEventListener("keyup", (event) => {
+      console.log(event.key); //a
+      console.log(event.code); //KeyA
+      console.log(event.altKey); //false
+      console.log(event.ctrlKey); //false
+      console.log(event.shiftKey); //false
+      console.log(event.metaKey); //false
+      console.log(event.repeat); //false
+      console.log(event.isComposing); //false
+    });
+
+    window.addEventListener("keydown", handleKeydown);
+    function handleKeydown(event) {
+      const KeyCode = event.keyCode;
+      if (KeyCode === 39) {
+        console.log("오른쪽 화살표");
+      }
+    }
+  </script>
+</html>

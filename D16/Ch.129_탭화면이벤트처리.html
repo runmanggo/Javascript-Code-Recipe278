@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+  </head>
+  <body class="chapter-7">
+    <main class="centering">
+      <h1>콘솔을 확인해 주세요.</h1>
+    </main>
+  </body>
+  <script>
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "visible") {
+        console.log("콘텐츠 표시 상태");
+        return;
+      }
+      if (document.visibilityState === "hidden") {
+        console.log("콘텐츠 비활성화(백그라운드화)상태");
+      }
+    });
+  </script>
+</html>
