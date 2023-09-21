@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      .main {
+        display: flex;
+      }
+
+      .box,
+      .inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      .box:after,
+      .inner:after {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 18px;
+        color: #333;
+      }
+
+      .box {
+        background-color: #fff7bf;
+        width: 100%;
+      }
+
+      .box:after {
+        content: ".box";
+      }
+
+      .box .inner {
+        background-color: #ffe44c;
+        width: 80%;
+        height: 80%;
+      }
+
+      .box .inner:after {
+        content: ".inner";
+      }
+    </style>
+  </head>
+  <body class="chapter-7">
+    <main class="main centering">
+      <h1>mouseenter</h1>
+      <div class="box">
+        <div class="inner"></div>
+      </div>
+    </main>
+  </body>
+  <script>
+    document.querySelector(".box").addEventListener("mouseenter", () => {
+      console.log(".box 요소 위치에 마우스가 있음");
+    });
+
+    document.querySelector(".inner").addEventListener("mouseenter", () => {
+      console.log(".inner 요소 위치에 마우스가 있음");
+    });
+  </script>
+</html>

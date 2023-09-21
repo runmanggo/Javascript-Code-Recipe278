@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      body {
+        background-color: antiquewhite;
+        height: 20000px;
+        overflow: scroll;
+        display: block;
+      }
+
+      .main {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body class="chapter-7">
+    <main class="centering">
+      <h1>콘솔을 확인해 주세요.</h1>
+    </main>
+  </body>
+  <script>
+    window.addEventListener("scroll", () => {
+      console.log("스크롤 작업", window.scrollX, window.scrollY);
+    });
+  </script>
+</html>

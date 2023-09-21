@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      body {
+        background-color: rgb(112, 112, 112);
+      }
+      main {
+        position: static;
+      }
+
+      .paragraph {
+        font-size: 2rem;
+        font-weight: bold;
+        -webkit-text-stroke: 1px white;
+        text-stroke: 1px white;
+      }
+
+      #balloon {
+        font-size: 1.2rem;
+        cursor: pointer;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        text-align: center;
+        padding: 5px;
+        min-width: 60px;
+        color: #171717;
+        font-size: 12px;
+        background: white;
+        border-radius: 5px;
+        display: none;
+        opacity: 0;
+      }
+
+      #balloon::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -10px;
+        border: 10px solid transparent;
+        border-top: 10px solid white;
+      }
+
+      #balloon.on {
+        opacity: 1;
+        display: block;
+        transition: 300ms all;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="centering large">
+      <p class="paragraph">Hello, this is a Javascript programming book.</p>
+      <div id="balloon"></div>
+    </main>
+  </body>
+  <script>
+    const balloon = document.querySelector("#balloon"); // 말풍선
+    const paragraph = document.querySelector(".paragraph");
+
+    paragraph.addEventListener("selectstart", () => {
+      paragraph.addEventListener(
+        "mouseup",
+        (event) => {
+          const selectionCharacters = window.getSelection().toString();
+          // 위 코드는 현재 선택한 텍스트를 가져온것
+
+          if (selectionCharacters.length > 0) {
+            balloon.innerHTML = selectionCharacters;
+            balloon.classList.add("on");
+            balloon.style.left = `${event.clientX - balloon.clientWidth / 2}px`;
+            balloon.style.top = `${event.clientY - balloon.clientHeight * 2}px`;
+          } else {
+            removePopup();
+          }
+        },
+        {
+          once: true,
+        }
+        // 클릭 이벤트가 발생할 때 removePopup() 함수를 호출하고 이벤트 리스너를 한 번만 실행
+        /**
+         * element.addEventListener('click', () => {
+          removePopup();
+         }, { once: true });
+         */
+      );
+    });
+
+    balloon.addEventListener("click", removePopup);
+  </script>
+</html>
