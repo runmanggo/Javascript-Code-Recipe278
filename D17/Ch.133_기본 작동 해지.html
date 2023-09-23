@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      @import url(../../common/css/base_photo.css);
+      * {
+        margin: 0;
+        padding: 0;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      table {
+        text-align: left;
+        border-collapse: collapse;
+      }
+
+      table th {
+        font-weight: normal;
+      }
+
+      h1,
+      h2 {
+        font-weight: normal;
+      }
+
+      button {
+        display: block;
+      }
+
+      label {
+        display: block;
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.7);
+        font-size: 22px;
+      }
+
+      p,
+      main ul li {
+        margin-bottom: 20px;
+      }
+
+      #mouseWheelToggle {
+        margin-right: 10px;
+      }
+
+      .scrollable-element {
+        overflow-y: scroll;
+      }
+
+      .scrollable-element {
+        width: 100%;
+        height: 110px;
+        text-align: center;
+        border: 1px solid #333;
+      }
+    </style>
+  </head>
+  <body class="chapter-7">
+    <main class="centering large">
+      <p>
+        <input id="mouseWheelToggle" type="checkbox" />마우스 휠 기능 무효화
+      </p>
+
+      <ul class="scrollable-element">
+        <li>사과</li>
+        <li>귤</li>
+        <li>바나나</li>
+        <li>딸기</li>
+        <li>파인애플</li>
+        <li>키위</li>
+        <li>포도</li>
+        <li>수박</li>
+      </ul>
+    </main>
+  </body>
+  <script>
+    //마우스 휠 무효화 전환 변수
+    let enableMouseWheel = true;
+    //체크박스 클릭시 처리 작업
+    document
+      .querySelector("#mouseWheelToggle")
+      .addEventListener("click", (event) => {
+        enableMouseWheel = event.target.checked === false;
+      });
+
+    //스클롤 요소에서 스크롤 시 처리 작업
+    document
+      .querySelector(".scrollable-element")
+      .addEventListener("wheel", (event) => {
+        if (enableMouseWheel === true) {
+          return;
+        }
+        event.preventDefault();
+      });
+  </script>
+</html>

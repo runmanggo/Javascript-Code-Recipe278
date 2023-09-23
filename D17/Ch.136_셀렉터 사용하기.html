@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      main {
+        display: flex;
+        align-items: stretch;
+      }
+
+      #log {
+        flex-grow: 1;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="large">
+      <div id="log"></div>
+    </main>
+  </body>
+  <script>
+    const logElement = document.querySelector("#log");
+    logElement.innerHTML = "안녕하세요.";
+  </script>
+</html>

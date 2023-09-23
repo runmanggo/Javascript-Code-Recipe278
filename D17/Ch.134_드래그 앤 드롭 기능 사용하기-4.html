@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      body {
+        display: block;
+        overflow: scroll;
+      }
+
+      .file-zone {
+        background-color: rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: calc(100% - 200px);
+        transition: 100ms all ease-out;
+      }
+
+      .file-zone.on {
+        background-color: rgba(97, 131, 209, 0.9);
+      }
+
+      .file-preview-area {
+        width: 100%;
+        min-height: 200px;
+        background-color: rgba(0, 0, 0, 0.58);
+      }
+
+      .file-preview-area .image-list {
+        display: grid;
+        overflow: scroll;
+        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 200px;
+      }
+
+      .file-preview-area .image-list > img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body class="chapter-7">
+    <div class="file-zone">이미지를<br />여기 놓아주세요.</div>
+
+    <div class="file-preview-area">
+      <h1>업로드한 이미지</h1>
+      <div class="image-list"></div>
+    </div>
+  </body>
+  <script>
+    // 파일 업로드 영역
+    const fileZone = document.querySelector(".file-zone");
+
+    // 파일 업로드 영역에 사용하는 클래스
+    const className = "on";
+
+    // 드롭 요소가 중복된 경우 처리
+    fileZone.addEventListener("dragover", (event) => {
+      // 기본 이벤트 작동 해지
+      event.preventDefault();
+      fileZone.classList.add(className);
+    });
+
+    // 드래그가 요소를 벗어날 경우  처리
+    fileZone.addEventListener("dragleave", () => {
+      // 기본 이벤트 작동 해지
+      event.preventDefault();
+      fileZone.classList.remove(className);
+    });
+
+    // 드롭 처리
+    fileZone.addEventListener("drop", (event) => {
+      // 기본 이벤트 작동 해지
+      event.preventDefault();
+      fileZone.classList.remove(className);
+
+      // File 객체 참조
+      const transferdFiles = event.dataTransfer.files;
+
+      // 이미지 표시
+      displayImages(transferdFiles);
+    });
+
+    /** 이미지 표시 처리  */
+    function displayImages(transferdFiles) {
+      // 이미지 파일 보관 배열
+      const imageFileList = [];
+
+      // 파일 수
+      const fileNum = transferdFiles.length;
+
+      // 이미지 파일인 경우에만 작업
+      for (let i = 0; i < fileNum; i++) {
+        if (transferdFiles[i].type.match("image.*") === false) {
+          return;
+        }
+        imageFileList.push(transferdFiles[i]);
+      }
+
+      // 이미지 표시 영역 참조
+      const imagePreviewArea = document.querySelector(".image-list");
+
+      // 각 이미지 파일 처리
+      for (const imageFile of imageFileList) {
+        // 이미지 파일 불러오기
+        const fileReader = new FileReader();
+        fileReader.readAsDataURL(imageFile); // 파일을 읽어오는 역할
+        fileReader.addEventListener("load", (event) => {
+          const image = new Image();
+          image.src = event.target.result; //이미지 파일의 데이터 URL이 포함되어 있으며, 이를 이미지 요소의 src 속성에 할당하여 이미지를 표시할 준비
+          imagePreviewArea.insertBefore(image, imagePreviewArea.firstChild); //미리보기에 추가
+        });
+      }
+    }
+  </script>
+</html>

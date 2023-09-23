@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      .main {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .character {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body class="chapter-7">
+    <main class="main">
+      <div class="character" draggable="true"></div>
+      <div class="box">박스</div>
+    </main>
+  </body>
+  <script>
+    const box = document.querySelector(".box");
+
+    // dragover 이벤트 무효화
+    box.addEventListener("dragover", (event) => {
+      event.preventDefault();
+    });
+
+    box.addEventListener("drop", () => {
+      console.log("drop 이벤트");
+    });
+  </script>
+</html>

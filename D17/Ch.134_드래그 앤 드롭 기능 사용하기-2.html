@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      .main {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .character {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+  <body class="chapter-7">
+    <main class="main">
+      <div class="character" draggable="true"></div>
+      <div class="box">드래그 기능</div>
+    </main>
+  </body>
+  <script>
+    const box = document.querySelector(".box");
+
+    box.addEventListener("dragenter", () => {
+      console.log("dragenter 이벤트");
+    });
+
+    box.addEventListener("dragover", () => {
+      console.log("dragover 이벤트");
+    });
+
+    box.addEventListener("dragleave", () => {
+      console.log("dragleave 이벤트");
+    });
+  </script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      main {
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+
+      .textarea {
+        width: 100%;
+        height: calc(100% - 40px);
+        font-size: 40px;
+      }
+
+      #myBox {
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        color: #fff;
+        border: 1px solid #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: rgba(229, 88, 103, 0.8);
+        width: 200px;
+        height: 200px;
+        font-size: 22px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="large centering">
+      <div id="myBox">박스</div>
+    </main>
+  </body>
+  <script>
+    const boxElement = document.querySelector("#myBox");
+
+    boxElement.addEventListener("click", () => {
+      boxElement.innerHTML = "클릭 이벤트가 발생하였습니다.";
+    });
+
+    // setTimeout(() => {
+    //   boxElement.dispatchEvent(new Event("click"));
+    // }, 5000);
+    setTimeout(() => {
+      boxElement.click();
+    }, 2000); // 클릭 이벤트 발생시킬 수 있음
+  </script>
+</html>
