@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      .container {
+        display: flex;
+        border: 2px dotted #fff;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      .container:first-child {
+        margin-top: 0;
+      }
+
+      .container .box {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+
+      .new-box {
+        background-color: #d03939;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="chapter-8">
+    <main class="main centering">
+      <!-- beforebegin 위치 -->
+      <div class="container">
+        <!-- afterbegin 위치 -->
+        <div class="box">자식 요소1</div>
+        <div class="box">자식 요소2</div>
+        <!-- afterend 위치 -->
+      </div>
+      <!-- beforeend 위치 -->
+    </main>
+  </body>
+  <script>
+    const container = document.querySelector(".container");
+    const newBox = `<div class="new-box box">.new-box 요소</div>`;
+    setTimeout(() => {
+      //new-box요소를 container 요소 제일 앞에 추가
+      container.insertAdjacentHTML("afterbegin", newBox);
+      //new-box요소를 container 요소 뒤에 추가
+      container.insertAdjacentHTML("afterend", newBox);
+    }, 3000);
+  </script>
+</html>
