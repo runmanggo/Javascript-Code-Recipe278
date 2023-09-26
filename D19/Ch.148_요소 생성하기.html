@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      body {
+        background-color: blanchedalmond;
+      }
+
+      .modal {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal .inner {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        margin: 10px;
+        display: block;
+        width: 960px;
+        height: 540px;
+        border-radius: 5px;
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        box-sizing: border-box;
+        padding: 20px;
+        text-align: center;
+        background-color: rgba(255, 255, 255, 0.9);
+        max-width: 600px;
+        max-height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #333;
+        font-size: 1.5rem;
+        animation: fadeInAnimation 200ms ease-out;
+      }
+
+      @keyframes fadeInAnimation {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button id="create-modal-button">모달 윈도우 창 생성</button>
+  </body>
+  <script>
+    document
+      .querySelector("#create-modal-button")
+      .addEventListener("click", displayMoDalWindow);
+
+    function displayMoDalWindow() {
+      const modalElement = document.createElement("div");
+      modalElement.classList.add("modal");
+
+      const innerElement = document.createElement("div");
+      innerElement.classList.add("inner");
+      innerElement.innerHTML = `<p>모달 윈도우 내용</p><div class="character"></div>`;
+
+      modalElement.appendChild(innerElement); // 모달 원도우 내부 요소 배치
+      document.body.appendChild(modalElement); // body 요소에 모달 윈도우 배치
+
+      innerElement.addEventListener("click", () => {
+        closeModalWindow(modalElement);
+      });
+    }
+    //모달 닫기
+    function closeModalWindow(modalElement) {
+      document.body.removeChild(modalElement);
+    }
+  </script>
+</html>

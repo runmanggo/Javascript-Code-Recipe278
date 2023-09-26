@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      body {
+        align-items: flex-end;
+      }
+
+      main {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.6);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+        color: #333333;
+        box-sizing: border-box;
+        padding: 0px;
+        text-align: center;
+      }
+
+      #weather {
+        font-size: 2rem;
+      }
+
+      #weather strong {
+        color: #d03939;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="main centering">
+      <p id="weather">내일은 눈이 옵니다.</p>
+    </main>
+  </body>
+  <script>
+    const weatherElement = document.querySelector("#weather");
+
+    // 문자열이 아닌 HtML코드이므로 css 변경 가능
+    setTimeout(() => {
+      weatherElement.innerHTML = "기온은 <strong>-3℃</strong>가 예상됩니다.";
+    }, 3000);
+  </script>
+</html>

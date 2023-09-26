@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      .container {
+        display: flex;
+        border: 2px dotted #fff;
+        padding: 10px;
+        margin-top: 20px;
+      }
+
+      .container:first-child {
+        margin-top: 0;
+      }
+
+      .container .div {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+
+      #myBox {
+        border: 4px solid #d03939;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body class="chapter-8">
+    <main class="main centering">
+      <div class="container">
+        <div id="myBox">박스</div>
+      </div>
+    </main>
+  </body>
+  <script>
+    setTimeout(() => {
+      const clonedBox = document.querySelector("#myBox").cloneNode(true);
+      // 자식노드를 만들어서 myBox에 요소 복제 cloneNode()인수를 생략하거나 flase를 전달하면
+      //자식 (박스)는 복제 되지 않는다.
+      document.querySelector(".container").appendChild(clonedBox);
+    }, 3000);
+  </script>
+</html>

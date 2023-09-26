@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      #child {
+        border: 1px solid white;
+        padding: 0.5em;
+      }
+    </style>
+  </head>
+  <body class="chapter-8">
+    <main class="main centering">
+      <div id="parent">
+        <div id="child">제거되는 요소</div>
+      </div>
+    </main>
+  </body>
+  <script>
+    setTimeout(() => {
+      const childElement = document.querySelector("#child");
+      childElement.remove();
+    }, 3000);
+  </script>
+</html>
