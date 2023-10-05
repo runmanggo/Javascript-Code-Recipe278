@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>샘플</title>
+    <style>
+      #box {
+        width: 100px;
+        height: 100px;
+      }
+
+      .red {
+        background-color: #ff2bc2;
+      }
+
+      .blue {
+        background-color: #2b85ff;
+      }
+    </style>
+  </head>
+  <body class="chapter-8">
+    <main class="main centering">
+      <ul>
+        <li><a href="dummypage1.html" target="_blank">링크1</a></li>
+        <li><a href="dummypage2.html">링크2</a></li>
+        <li><a href="dummypage3.html" target="_self">링크3</a></li>
+        <li><a href="dummypage4.html" target="_blank">링크4</a></li>
+      </ul>
+
+      <p><a href="dummypage5.html">링크5</a></p>
+    </main>
+  </body>
+  <script>
+    const aElementList = document.querySelectorAll("a");
+
+    aElementList.forEach((element) => {
+      //a 태그에 target 속성이 없으면 return
+      if (element.hasAttribute("target") === false) {
+        return;
+      }
+      // target이 _blank 속성이 아니면 return
+      if (element.getAttribute("target") !== "_blank") {
+        return;
+      }
+      // rel 속성에 noopener 설정
+      element.setAttribute("rel", "noopener");
+    });
+  </script>
+</html>
