@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="myText" type="text" />
+    <p class="log"></p>
+  </body>
+  <script>
+    const element = document.querySelector("#myText");
+    element.addEventListener("input", handleChange);
+
+    function handleChange(event) {
+      const value = event.target.value;
+      document.querySelector(".log").innerHTML = value;
+    }
+  </script>
+</html>

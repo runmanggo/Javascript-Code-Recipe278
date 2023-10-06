@@ -135,6 +135,7 @@ h1 {
   <script>
     document.querySelectorAll(".button").forEach((button) => {
       button.addEventListener("click", () => {
+        //.button. 다음요소의 클래스 전환
         button.nextElementSibling.classList.toggle("show");
       });
     });
