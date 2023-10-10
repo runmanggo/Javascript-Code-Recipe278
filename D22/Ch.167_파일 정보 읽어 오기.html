@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>샘플</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../common/css/style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body class="chapter-9">
+    <main class="centering">
+      <input type="file" id="myFile" accept=".txt" />
+    </main>
+  </body>
+  <script>
+    const element = document.querySelector("#myFile");
+
+    element.addEventListener("change", (event) => {
+      const target = event.target;
+      const files = target.files;
+
+      const file = files[0];
+
+      alert(`${file.name} 파일이 선택되었습니다.`);
+    });
+  </script>
+</html>

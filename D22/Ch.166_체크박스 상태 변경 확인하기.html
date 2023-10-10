@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>샘플</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .log {
+        border: 1px solid white;
+        padding: 0.5em;
+      }
+    </style>
+  </head>
+  <body class="chapter-9">
+    <main class="centering">
+      <label>
+        <input type="checkbox" id="cbA" value="A" />
+        체크박스A
+      </label>
+      <p class="log"></p>
+    </main>
+  </body>
+  <script>
+    const cb = document.getElementById("cbA");
+    cb.addEventListener("change", (event) => {
+      const value = event.target.checked;
+
+      const log = `체크박스 A는 ${value}로 변경되었습니다.`;
+      document.querySelector(".log").innerHTML = log;
+    });
+  </script>
+</html>
